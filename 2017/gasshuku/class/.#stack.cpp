@@ -1,1 +1,0 @@
-kentaro@kentaro-virtual-machine.12511:1491201384
