@@ -1,0 +1,33 @@
+class frac{
+  int bunshi, bunbo;
+  int gcd(int a, int b) {
+    if(b == 0) return a;
+    else gcd(b, a % b);
+  }
+  void reduction() {
+    bunshi /= gcd(bunshi, bunbo);
+    bunbo /= gcd(bunshi, bunbo);
+  }
+public:
+  frac(int a, int b) {
+    bunshi = a;
+    bunbo = b;
+  }
+  double val() {
+    return bunshi / bunbo;
+  }
+  frac operator+ (const frac& o) const {
+    int n_bunshi = bunshi*o.bunbo + o.bunshi * bunshi;
+    int n_bunbo = bunbo * o.bunbo;
+    frac f(n_bunshi, n_bunbo);
+    f.reduction();
+    return 
+  };
+  
+  frac operator- (const frac& o) const {
+  };
+  frac operator* (const frac& o) const {
+  };
+  frac operator/ (const frac& o) const {
+  }
+};

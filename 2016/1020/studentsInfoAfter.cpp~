@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+typedef struct student {
+  std::string name;
+  int grade;
+  float height;
+}student_t;
+
+student_t getStudent() {
+  student_t student;
+  std::cin >> student.name >> student.grade >> student.height;
+  return student;
+}
+
+void getStudents(std::vector<student_t> &v, int num) {
+  std::cout << "Please input student information:" << std::endl;
+  
+  for (int i = 0; i < num; i++) v.push_back(getStudent());
+}
+
+std::vector<student_t> extractStudentsByGrade(const std::vector<student> &students, int grade) {
+  std::vector<student_t> extraced;
+  for (auto& student : students) {}
+}
+
+bool compareHeight(const student_t& lhs, const student_t& rhs) {
+  return lhs.height < rhs.height;
+}
+
+int main() {
+  std::cout << "Please input the number of students:" << std::endl;
+  int num_students;
+  std::cin >> num_students;
+
+  std::vector<student_t> students;
+  getStudents(students, num_students);
+  std::sort(students.begin(), students.end(), compareHeight);
+
+  std::cout << "Please input the school year:" << std::endl;
+  int grade;
+  std::cin >> grade;
+  
+  float median;
+  if (num_students % 2 == 0) median = (students[num_students / 2].height + students[num_students / 2 + 1].height) / 2;
+  else median = students[num_students / 2 + 1].height;
+
+  std::cout << median << std::endl;
+
+  return 0;
+}

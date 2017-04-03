@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template<class T, class E = typename T::value_type>
+E max(const T& a) const {
+  E retval = E();
+  for (const auto& e : a) {
+    retval = (e > retval) ? e : retval;
+  }
+  return retval;
+}
+
+
+int main() {
+ 
+}

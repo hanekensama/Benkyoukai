@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Team{
+  int id;
+  int belong;
+  int solve;
+  int penalty;
+
+  Team(int i, int b, int s, int p) {
+    id = i;
+    belong = b;
+    solve = s;
+    penalty = p;
+  }
+  bool operator < (const Team& o) const {
+    if (solve > o.solve) return true;
+    else if (solve == o.solve) {
+      if (penalty < o.penalty) return true;
+      else if (penalty == o.penalty) {
+	if (id < o.id) return true;
+      }
+    }
+    return false;
+  }
+};
+
+int main() {
+  
+}

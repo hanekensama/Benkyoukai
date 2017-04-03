@@ -1,0 +1,6 @@
+5
+TatoTanaka 180.5 1000000
+HanakoYamada 120.5 3
+KeisukeNakao 170.0 1
+ShigeruYamashita 250.5 10000000
+KentaroHaneda 180.0 3

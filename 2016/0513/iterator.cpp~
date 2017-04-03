@@ -1,0 +1,9 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v(10, 15, 100, 13, 1, 5);
+  std::vector<int>::iterator itr;
+  itr = v.begin();
+  std::cout << *itr << std::endl;
+}
