@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 
 class Vector2D {
 private:
@@ -24,6 +25,8 @@ public:
   Vector2D operator--();
   Vector2D operator--(int n);
 };
+
+std::ostream& operator<<(std::ostream& os, Vector2D v); // クラス外部に作成する
 
 Vector2D::Vector2D(int x, int y) {
   x_ = x;
@@ -108,37 +111,35 @@ Vector2D Vector2D::operator--(int n) {
   return *this;
 }
 
-void printVector(Vector2D v);
+std::ostream& operator<<(std::ostream& os, Vector2D v) {
+  char str[32];
+  sprintf(str, "(%d, %d)", v.getX(), v.getY());
+  os << str;
+  return os;
+}
 
 int main() {
   Vector2D a(1,2), b(2,3);
 
-  std::cout << "a: ";   printVector(a);
-  std::cout << "b: ";   printVector(b);
-  std::cout << std::endl;
+  std::cout << "a: " << a << std::endl;
+  std::cout << "b: " << b << std::endl << std::endl;
   
-  std::cout << "a+b: "; printVector(a + b);
-  std::cout << "a-b: "; printVector(a - b);
-  std::cout << "a*2: "; printVector(a * 2);
-  std::cout << "a/2: "; printVector(a / 2);
-  std::cout << std::endl;
+  std::cout << "a+b: " << (a + b) << std::endl;
+  std::cout << "a-b: " << (a - b) << std::endl;
+  std::cout << "a*2: " << (a * 2) << std::endl;
+  std::cout << "a/2: " << (a / 2) << std::endl << std::endl;
 
   std::cout << "a==b: " << (a == b) << std::endl;
   std::cout << "a!=b: " << (a != b) << std::endl;
   std::cout << "a<b:" << (a < b) << std::endl;
   std::cout << "a>b:" << (a > b) << std::endl;
   std::cout << "a<=b:" << (a <= b) << std::endl;
-  std::cout << "a>=b:" << (a >= b) << std::endl;
-  std::cout << std::endl;
+  std::cout << "a>=b:" << (a >= b) << std::endl << std::endl;
 
-  std::cout << "++a: "; printVector(++a);
-  std::cout << "a++: "; printVector(a++);
-  std::cout << "--a: "; printVector(--a);
-  std::cout << "a--: "; printVector(a--);
+  std::cout << "++a: " << (++a) << std::endl;
+  std::cout << "a++: " << (a++) << std::endl;
+  std::cout << "--a: " << (--a) << std::endl;
+  std::cout << "a--: " << (a--) << std::endl;
 
   return 0;
-}
-
-void printVector(Vector2D v) {
-  std::cout << "(" << v.getX() << ", " << v.getY() << ")" << std::endl;
 }

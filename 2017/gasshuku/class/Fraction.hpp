@@ -1,3 +1,9 @@
+#ifndef __FRACTION_HPP__
+#define __FRACTION_HPP__
+
+#include <iostream>
+#include <cstdio>
+
 class Fraction {
 private:
   int denom_, numer_;
@@ -19,6 +25,8 @@ public:
   bool operator>=(const Fraction& other) const;
   float operator float() const;
 };
+
+std::ostream& operator<<(std::ostream& os, Fraction num) const;
 
 Fraction::Fraction(int numer, int denom=1) {
   numer_ = numer;
@@ -45,62 +53,64 @@ Fraction Fraction::operator+(const Fraction& other) {
   return Fraction(denom, numer);
 }
 
-Fraction operator-(const Fraction& other) {
+Fraction Fraction::operator-(const Fraction& other) {
   return *this + -(other);
 }
 
-Fraction operator*(const Fraction& other) {
+Fraction Fraction::operator*(const Fraction& other) {
   auto denom = this->denom_ * other.denom_;
   auto numer = this->numer_ * other.numer_;
 
   return Fraction(denom, numer);
 }
 
-Fraction operator/(const Fraction& other) {
+Fraction Fraction::operator/(const Fraction& other) {
   auto denom = this->denom_ * other.numer_;
   auto numer = this->numer_ * other.denom_;
 
   return Fraction(denom, numer);
 }
 
-bool operator==(const Fraction& other) {
+bool Fraction::operator==(const Fraction& other) {
   return (this->denom_ == other.denom_ && this->numer_ == other.numer_);
 }
 
-bool operator!=(const Fraction& other) const {
+bool Fraction::operator!=(const Fraction& other) const {
   return !(*this == other);
 }
 
-bool operator<(const Fraction& other) const {
+bool Fraction::operator<(const Fraction& other) const {
   return (float)*this < (float)other;
 }
 
-bool operator>(const Fraction& other) const {
+bool Fraction::operator>(const Fraction& other) const {
   return (float)*this > (float)other;
 }
 
-bool operator<=(const Fraction& other) const {
+bool Fraction::operator<=(const Fraction& other) const {
   return (*this == other || *this < other);
 }
 
-bool operator>=(const Fraction& other) const {
+bool Fraction::operator>=(const Fraction& other) const {
   return (*this == other || *this > other);
 }
 
-float operator float() const {
+float Fraction::operator float() const {
   return (float)numer_ / denom_;
 }
 
-void reduce() {
+void Fraction::reduce() {
   auto gcd = Euclid(denom_, numer_);
   denom_ /= gcd;
   numer_ /= gcd;
 }
 
-inline int Euclid(int a, int b) const {
+inline int Fraction::Euclid(int a, int b) const {
   while((auto r = a % b) != 0) {
     a = b;
     b = r;
   }
   return b;
 }
+
+#endif __FRACTION_HPP__
