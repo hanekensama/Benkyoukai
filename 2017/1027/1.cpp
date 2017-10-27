@@ -4,8 +4,23 @@
 
 using namespace std;
 
+/**
+ * @brief データ数に関して、ユーザの入力を受け付ける
+ * @return 入力されたデータ数
+ */
 auto getSize() -> unsigned int;
+
+/**
+ * @brief ユーザからの複数の整数の入力を受け付ける
+ * @param [in] size データの数
+ * @return 入力されたデータが格納されたvector
+ */
 auto getVector(unsigned int size) -> vector<int>;
+
+/**
+ * @brief vectorの中身を順に出力する
+ * @param [in] v 出力したいvector
+ */
 auto printVector(const vector<int>& v) -> void;
 
 auto main() -> int {
