@@ -25,4 +25,6 @@ auto main() -> int {
 
   o1--;
   cout << o1 << endl;
+  
+  return 0;
 }
