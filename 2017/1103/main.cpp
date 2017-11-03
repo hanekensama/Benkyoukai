@@ -2,7 +2,7 @@
 #include "three_d.hpp"
 using namespace std;
 
-int main() {
+auto main() -> int {
   three_d o1(10, 10, 10), o2(2, 3, 4), o3;
 
   o3 = o1 + o2;
