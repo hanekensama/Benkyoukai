@@ -1,4 +1,5 @@
 /**
+ * @file caesar.hpp
  * @brief シーザー暗号の暗号化、復号に関わる関数群の定義
  * @author hub <hub@ngc.is.ritsumei.ac.jp>
  * @date 2017.11.23
@@ -11,7 +12,6 @@
  * @brief コマンドライン引数をチェックする関数
  * @param [in] argc コマンドライン引数の数
  * @param [in] argv コマンドライン引数の数
- * @return bool コマンドライン引数が正しいかどうか
  * @retval true コマンドライン引数が正しい
  * @retval false コマンドライン引数が正しくない
  */

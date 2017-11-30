@@ -1,4 +1,5 @@
 /**
+ * @file main.cpp
  * @brief シーザー暗号方式で文字列の暗号化、復号を行う
  * @author hub <hub@ngc.is.ritsumei.ac.jp>
  * @date 2017.11.23
@@ -10,6 +11,9 @@
 #include <cstdlib>
 #include "caesar.hpp"
 
+/**
+ * @fn main
+ */
 int main(int argc, char *argv[]) {
   if (hasCorrectArgments(argc, argv)) {
     // 文字列をユーザに入力させて取得する
